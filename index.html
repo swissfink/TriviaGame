@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Trivia Game</title>
+
+   <!-- Added a link to css reset file-->
+   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+   
+    <!-- Added a link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Added a link to style sheet-->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+    <!-- Added a link to a Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Karma" rel="stylesheet">
+
+
+
+</head>
+
+<body>   
+
+    <div class="container">
+        <br>
+        <div class="row">
+
+            <div class="col-lg-1"> <!-- column 1 -->
+            </div> <!-- end of column -->
+
+            <div class="col-lg-10"> <!-- column 2 -->
+
+                <div class="card">
+
+                    <div class="card-header text-center">
+                        <h1>Trivia Game</h1>
+                    </div>
+
+                    <div class="card-body">
+                        <h3>How to play:</h3>
+                        <ul>
+                            <li>• When you start the quiz, read each question carefully.</li>
+                            <li>• Select an answer for each question before the timer runs out.</li> 
+                            <li>• Your number of correct, incorrect, and skipped answers will be posted when your submit your answers or when the timer runs out.</li>
+                            <li>• Good luck!</li>
+                        </ul>
+                        <hr class="my-4">
+                        <!-- Div containing the start button  -->
+                        <div id="buttons" style="text-align: center;">
+                            <button type="button" class="btn btn-lg btn-outline-dark" id="start">Start Quiz</button>
+                            <!-- <button type="button" class="btn btn-lg btn-outline-dark" id="stop">Stop</button> -->
+                            <button type="button" class="btn btn-lg btn-outline-dark" id="reset">Reset</button>
+                        </div>
+                    </div>
+                </div>
+            <br>
+            </div> <!-- end of column -->
+
+            <div class="col-lg-1"> <!-- column 3 -->
+            </div> <!-- end of column -->
+            
+        </div> <!-- end of row -->
+
+        <div class="row"> 
+
+            <div class="col-lg-1"> <!-- column 1 -->
+
+            </div> <!-- end of column -->
+            
+            <div class="col-lg-10"> <!-- column 2 -->
+
+                <div class="card" id="questions">
+
+                    <div class="card-header">
+                        <h3>Timer
+                            <span id="countdownTimer"></span>
+                        </h3>
+                        <p>
+                            <span id="answersRightText"></span>
+                            <span id="answersWrongText"></span>
+                            <span id="answersEmptyText"></span>
+                        </p>
+                    </div>
+
+                    <div class="card-body">
+                        <h3>Questions</h3>
+                        <p>Question 1: JavaScript is a/an ______ Language.</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <!-- <p>Question 2</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 3</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 4</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 5</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 6</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 7</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 8</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 9</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form>
+                        <br>
+                        <p>Question 10</p>
+                        <form >
+                            <input type="radio" name="choice" value="Scripting"> Scripting
+                            <input type="radio" name="choice" value="Programming"> Programming
+                            <input type="radio" name="choice" value="Application"> Application
+                            <input type="radio" name="choice" value="None of These"> None of These
+                        </form> -->
+                        <br>
+                        <hr class="my-4">
+                        <!-- Div containing the start button  -->
+                        <!-- <div id="buttons" style="text-align: center;">
+                                <button type="button" class="btn btn-lg btn-outline-dark" id="submit">Submit Your Answers</button>
+                        </div> -->
+                        <div id="buttons" style="text-align: center;">
+                            <button type="button" class="btn btn-lg btn-outline-dark" id="submit">Submit Your Answers</button>
+                        </div>
+                    </div>
+                    
+
+                </div> <!-- end of card -->
+
+                <br>
+
+            </div>
+
+            <br>
+
+            <div class="col-lg-1"> <!-- column 3 -->
+
+            </div> <!-- end of column -->
+
+            <br>
+
+        </div> <!-- end of row -->
+
+    </div> <!-- end of container -->
+
+    <!-- footer info -->
+    <footer class="text-muted">
+        <p> &copy; copyright 2019 | Richard Fink | All rights reserved.</p>
+    </footer>
+
+    <!-- video background -->
+    <div id="video-background" style="position: fixed; width: 120%; height: 120%">
+        <iframe frameborder="0" height="100%" width="100%"
+            src="https://www.youtube.com/embed/1IkY0_qONRk?controls=0&autoplay=1" allow="accelerometer; autoplay;">
+        </iframe>
+    <div>
+
+    <!-- Added a link to my game JavaScript file -->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+body {
+    background-color: #190f1e;
+    font-family: 'Karma', serif;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 45px;
+}
+
+footer {
+    font-family: 'Karma', serif;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin-top: 25px;
+    padding-top: 20px;
+    background: #e9ecef;
+    text-align: center; 
+}
+
+.container {
+    margin-bottom: 75px;
+}
+
+.card {
+    opacity: .9;
+}
+
+#video-background {
+      position: fixed;
+      right: 0; 
+      bottom: 0;
+      min-width: 100%; 
+      min-height: 100%;
+      width: auto; 
+      height: auto;
+      z-index: -100;
+    }
+
+@media (max-width: 767px) {
+    #video-background {
+      display: none;
+    }
+}
+
