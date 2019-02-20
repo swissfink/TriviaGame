@@ -1,12 +1,29 @@
 body {
     background-color: #190f1e;
+    /* background-image: /assets/images/ */
+    background-image: url("/assets/images/seamless-2721472_1920.jpg");
     font-family: 'Karma', serif;
     margin-bottom: 25px;
 }
 
 h1 {
     font-family: 'Fredericka the Great', cursive;
-    font-size: 45px;
+    font-size: 50px;
+}
+
+h3 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 30px;
+}
+
+h4 {
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+li {
+    font-size: 18px;
 }
 
 footer {
@@ -24,8 +41,66 @@ footer {
     margin-bottom: 75px;
 }
 
-.card {
-    opacity: .9;
+.question {
+    padding: 15px;
+    font-size: 20px;
+}
+
+input[type=radio] {
+    /* border: 0px; */
+    width: 6%;
+    height: 1em;
+    margin-right: -10px;
+}
+
+#tally {
+    font-size: 22px;
+}
+
+#answersWrongText,
+#wrong {
+    color: red;
+}
+
+#answersRightText,
+#right {
+    color: green;
+}
+
+#buttons, 
+#start,
+#submit, 
+#reset {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#correct1, 
+#correct2, 
+#correct3, 
+#correct4, 
+#correct5, 
+#correct6, 
+#correct7, 
+#correct8, 
+#correct9, 
+#correct10  {
+    color: green;
+    text-align: center;
+}
+
+#incorrect1, 
+#incorrect2, 
+#incorrect3, 
+#incorrect4, 
+#incorrect5, 
+#incorrect6, 
+#incorrect7, 
+#incorrect8, 
+#incorrect9, 
+#incorrect10  {
+    color: red;
+    text-align: center;
 }
 
 #video-background {

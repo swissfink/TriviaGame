@@ -5,9 +5,9 @@
 
     <title>Trivia Game</title>
 
-   <!-- Added a link to css reset file-->
-   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-   
+    <!-- Added a link to css reset file-->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
     <!-- Added a link to the jQuery Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -20,33 +20,33 @@
     <!-- Added a link to a Google font-->
     <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Karma" rel="stylesheet">
 
-
-
 </head>
 
-<body>   
+<body>
 
     <div class="container">
         <br>
-        <div class="row">
+        <div class="row"> <!-- top row -->
 
             <div class="col-lg-1"> <!-- column 1 -->
-            </div> <!-- end of column -->
+                
+            </div> <!-- end of column 1-->
 
             <div class="col-lg-10"> <!-- column 2 -->
 
                 <div class="card">
 
                     <div class="card-header text-center">
-                        <h1>Trivia Game</h1>
+                        <h1> Random Bits of Trivia Game</h1>
                     </div>
 
                     <div class="card-body">
-                        <h3>How to play:</h3>
+                        <h3>How to play</h3>
                         <ul>
                             <li>• When you start the quiz, read each question carefully.</li>
-                            <li>• Select an answer for each question before the timer runs out.</li> 
-                            <li>• Your number of correct, incorrect, and skipped answers will be posted when your submit your answers or when the timer runs out.</li>
+                            <li>• Select an answer for each question before the timer runs out.</li>
+                            <li>• Your number of <span id="right">Right</span> and <span id="wrong">Wrong</span> answers will be posted when you submit your answers <br>
+                                &nbsp;&nbsp;&nbsp;or when the timer runs out.</li>
                             <li>• Good luck!</li>
                         </ul>
                         <hr class="my-4">
@@ -56,142 +56,199 @@
                             <!-- <button type="button" class="btn btn-lg btn-outline-dark" id="stop">Stop</button> -->
                             <button type="button" class="btn btn-lg btn-outline-dark" id="reset">Reset</button>
                         </div>
-                    </div>
-                </div>
-            <br>
-            </div> <!-- end of column -->
+                    </div> <!-- end of card body -->
+
+                </div><!-- end of card-->
+                <br>
+            </div> <!-- end of column 2-->
 
             <div class="col-lg-1"> <!-- column 3 -->
+                
             </div> <!-- end of column -->
-            
-        </div> <!-- end of row -->
 
-        <div class="row"> 
+        </div> <!-- end of top row -->
+
+        <div class="row">
 
             <div class="col-lg-1"> <!-- column 1 -->
-
+               
             </div> <!-- end of column -->
-            
-            <div class="col-lg-10"> <!-- column 2 -->
 
-                <div class="card" id="questions">
+            <div class="col-lg-10"> <!-- column 2 -->
+                
+                <div class="card" id="question-card">
 
                     <div class="card-header">
                         <h3>Timer
                             <span id="countdownTimer"></span>
                         </h3>
-                        <p>
+                        <p id="tally">
                             <span id="answersRightText"></span>
                             <span id="answersWrongText"></span>
-                            <span id="answersEmptyText"></span>
                         </p>
                     </div>
 
                     <div class="card-body">
-                        <h3>Questions</h3>
-                        <p>Question 1: JavaScript is a/an ______ Language.</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
+                        
+                        <form>
+
+                            <h3>Questions</h3>
+                            <br>
+                            <div class="question list-group-item">
+                                <h4>Question 1: Which planet is closest to Earth?</h4>
+                                <p>
+                                    <input type="radio" name="question1" value="Mars"> Mars
+                                    <input type="radio" name="question1" value="Uranus"> Uranus
+                                    <input type="radio" name="question1" value="Venus"> Venus
+                                    <input type="radio" name="question1" value="Neptune"> Neptune
+                                    <br>
+                                    <span Id="correct1"></span>
+                                    <span Id="incorrect1"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item-dark">
+                                <h4>Question 2: What's the total number of dots on a pair of dice?</h4>
+                                <p>
+                                    <input type="radio" name="question2" value="36"> 36
+                                    <input type="radio" name="question2" value="42"> 42
+                                    <input type="radio" name="question2" value="58"> 58
+                                    <input type="radio" name="question2" value="69"> 69
+                                    <br>
+                                    <span Id="correct2"></span>
+                                    <span Id="incorrect2"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item">
+                                <h4>Question 3: Mount Everest is found in which mountain range?</h4>
+                                <p>
+                                    <input type="radio" name="question3" value="Himalayas"> Himalayas
+                                    <input type="radio" name="question3" value="Andes"> Andes
+                                    <input type="radio" name="question3" value="Alps"> Alps
+                                    <input type="radio" name="question3" value="Karakoram"> Karakoram
+                                    <br>
+                                    <span Id="correct3"></span>
+                                    <span Id="incorrect3"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item-dark">
+                                <h4>Question 4: Who directed the movie Jaws?</h4>
+                                <p>
+                                    <input type="radio" name="question4" value="George Lucas"> George Lucas
+                                    <input type="radio" name="question4" value="Roy Schneider"> Roy Schneider
+                                    <input type="radio" name="question4" value="Richard Dreyfuss"> Richard Dreyfuss
+                                    <input type="radio" name="question4" value="Steven Spielberg"> Steven Spielberg
+                                    <br>
+                                    <span Id="correct4"></span>
+                                    <span Id="incorrect4"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item">
+                                <h4>Question 5: In Greek mythology, who turned all that he touched into gold?</h4>
+                                <p>
+                                    <input type="radio" name="question5" value="Zeus"> Zeus
+                                    <input type="radio" name="question5" value="Midas"> Midas
+                                    <input type="radio" name="question5" value="Hermes"> Hermes
+                                    <input type="radio" name="question5" value="Apollo"> Apollo
+                                    <br>
+                                    <span Id="correct5"></span>
+                                    <span Id="incorrect5"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item-dark">
+                                <h4>Question 6: What is the name of the city where the cartoon family The Simpsons
+                                    live?</h4>
+                                <p>
+                                    <input type="radio" name="question6" value="Quahog"> Quahog
+                                    <input type="radio" name="question6" value="Cleveland"> Cleveland
+                                    <input type="radio" name="question6" value="Springfield"> Springfield
+                                    <input type="radio" name="question6" value="Arlen"> Arlen
+                                    <br>
+                                    <span Id="correct6"></span>
+                                    <span Id="incorrect6"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item">
+                                <h4>Question 7: In which Olympic sport would you perform the Fosbury Flop?</h4>
+                                <p>
+                                    <input type="radio" name="question7" value="The High Jump"> The High Jump
+                                    <input type="radio" name="question7" value="Synchronized Diving"> Synchronized
+                                    Diving
+                                    <input type="radio" name="question7" value="Curling"> Curling
+                                    <input type="radio" name="question7" value="Badminton"> Badminton
+                                    <br>
+                                    <span Id="correct7"></span>
+                                    <span Id="incorrect7"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item-dark">
+                                <h4>Question 8: Spinach is high in which mineral?</h4>
+                                <p>
+                                    <input type="radio" name="question8" value="Zinc"> Zinc
+                                    <input type="radio" name="question8" value="Potassium"> Potassium
+                                    <input type="radio" name="question8" value="Calcium"> Calcium
+                                    <input type="radio" name="question8" value="Iron"> Iron
+                                    <br>
+                                    <span Id="correct8"></span>
+                                    <span Id="incorrect8"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item">
+                                <h4>Question 9: According to the old proverb, to which European capital city do all
+                                    roads lead?</h4>
+                                <p>
+                                    <input type="radio" name="question9" value="Moscow"> Moscow
+                                    <input type="radio" name="question9" value="Rome"> Rome
+                                    <input type="radio" name="question9" value="Belgium"> Belgium
+                                    <input type="radio" name="question9" value="Paris"> Paris
+                                    <br>
+                                    <span Id="correct9"></span>
+                                    <span Id="incorrect9"></span>
+                                </p>
+                            </div>
+
+                            <div class="question list-group-item-dark">
+                                <h4>Question 10: The title role of the 1990 movie “Pretty Woman” was played by which
+                                    actress?</h4>
+                                <p>
+                                    <input type="radio" name="question10" value="Meryl Streep"> Meryl Streep
+                                    <input type="radio" name="question10" value="Emma Roberts"> Emma Roberts
+                                    <input type="radio" name="question10" value="Julianne Moore"> Julianne Moore
+                                    <input type="radio" name="question10" value="Julia Roberts"> Julia Roberts
+                                    <br>
+                                    <span Id="correct10"></span>
+                                    <span Id="incorrect10"></span>
+                                </p>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <div id="buttons">
+                                <button type="button" class="btn btn-lg btn-outline-dark" id="submit">Submit Your
+                                    Answers</button>
+                            </div>
+
                         </form>
-                        <br>
-                        <!-- <p>Question 2</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 3</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 4</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 5</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 6</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 7</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 8</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 9</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form>
-                        <br>
-                        <p>Question 10</p>
-                        <form >
-                            <input type="radio" name="choice" value="Scripting"> Scripting
-                            <input type="radio" name="choice" value="Programming"> Programming
-                            <input type="radio" name="choice" value="Application"> Application
-                            <input type="radio" name="choice" value="None of These"> None of These
-                        </form> -->
-                        <br>
-                        <hr class="my-4">
-                        <!-- Div containing the start button  -->
-                        <!-- <div id="buttons" style="text-align: center;">
-                                <button type="button" class="btn btn-lg btn-outline-dark" id="submit">Submit Your Answers</button>
-                        </div> -->
-                        <div id="buttons" style="text-align: center;">
-                            <button type="button" class="btn btn-lg btn-outline-dark" id="submit">Submit Your Answers</button>
-                        </div>
-                    </div>
-                    
+
+                    </div> <!-- end of card body -->
+
+                    <br>
 
                 </div> <!-- end of card -->
 
-                <br>
-
-            </div>
-
+            </div> <!-- end of column 2 -->
             <br>
 
             <div class="col-lg-1"> <!-- column 3 -->
-
-            </div> <!-- end of column -->
-
+                
+            </div> <!-- end of column 3-->
             <br>
 
         </div> <!-- end of row -->
@@ -204,11 +261,11 @@
     </footer>
 
     <!-- video background -->
-    <div id="video-background" style="position: fixed; width: 120%; height: 120%">
-        <iframe frameborder="0" height="100%" width="100%"
-            src="https://www.youtube.com/embed/1IkY0_qONRk?controls=0&autoplay=1" allow="accelerometer; autoplay;">
-        </iframe>
-    <div>
+    <!-- <div id="video-background" style="position: fixed; width: 1500px; height: 1000px">
+    <iframe frameborder="0" height="100%" width="100%"
+        src="https://www.youtube.com/embed/1IkY0_qONRk?controls=0&autoplay=1" allow="accelerometer; autoplay;">
+    </iframe>
+    <div> -->
 
     <!-- Added a link to my game JavaScript file -->
     <script type="text/javascript" src="assets/javascript/app.js"></script>
