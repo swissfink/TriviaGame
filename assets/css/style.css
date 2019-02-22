@@ -57,15 +57,21 @@ input[type=radio] {
     font-size: 22px;
 }
 
+#answersRightText,
+#right {
+    color: green;
+}
+
 #answersWrongText,
 #wrong {
     color: red;
 }
 
-#answersRightText,
-#right {
-    color: green;
+#answersSkippedText,
+#skipped {
+    color: blue;
 }
+
 
 #buttons, 
 #start,
@@ -100,6 +106,20 @@ input[type=radio] {
 #incorrect9, 
 #incorrect10  {
     color: red;
+    text-align: center;
+}
+
+#skipped1, 
+#skipped2, 
+#skipped3, 
+#skipped4, 
+#skipped5, 
+#skipped6, 
+#skipped7, 
+#skipped8, 
+#skipped9, 
+#skipped10  {
+    color: blue;
     text-align: center;
 }
 

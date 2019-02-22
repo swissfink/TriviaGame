@@ -2,7 +2,6 @@ window.onload = function () {
   $("#start").on("click", quiz.start);
   $("#reset").on("click", quiz.reset);
   $("#submit").on("click", quiz.submitAnswers);
-  // $("#stop").on("click", quiz.stop);
   $("#countdownTimer").text("00:45");
   document.getElementById("question-card").style.cssText = "display: none";
   document.getElementById("reset").style.cssText = "display: none";
@@ -12,6 +11,7 @@ var quizResults = {
   // Variables to set and hold the quiz results
   var: rightAnswers = 0,
   var: wrongAnswers = 0,
+  var: skippedAnswers = 0
 }
 
 // Variable that will hold the setInterval that runs the timer
@@ -29,11 +29,12 @@ var quiz = {
   reset: function () {
 
     // Clear the selected answers
-    $(".card-body input").prop("checked", false);
+    $(".card-body input").prop("checked", false).attr("disabled", false);
     
     // Clear the score
     document.getElementById("answersRightText").innerText = ("");
     document.getElementById("answersWrongText").innerText = ("");
+    document.getElementById("answersSkippedText").innerText = ("");
 
     // Clear the feedback
     document.getElementById("correct1").innerText = ("");
@@ -56,10 +57,21 @@ var quiz = {
     document.getElementById("incorrect8").innerText = ("");
     document.getElementById("incorrect9").innerText = ("");
     document.getElementById("incorrect10").innerText = ("");
+    document.getElementById("skipped1").innerText = ("");
+    document.getElementById("skipped2").innerText = ("");
+    document.getElementById("skipped3").innerText = ("");
+    document.getElementById("skipped4").innerText = ("");
+    document.getElementById("skipped5").innerText = ("");
+    document.getElementById("skipped6").innerText = ("");
+    document.getElementById("skipped7").innerText = ("");
+    document.getElementById("skipped8").innerText = ("");
+    document.getElementById("skipped9").innerText = ("");
+    document.getElementById("skipped10").innerText = ("");
 
     // Reset the score
     rightAnswers = 0;
     wrongAnswers = 0;
+    skippedAnswers = 0;
     
     // Reset the timer
     quiz.timer = 45;
@@ -117,13 +129,12 @@ var quiz = {
       // check the answers
       quiz.checkAnswers();
 
-      // Alert the player
-      // alert ("Time's up!");
-
       // Hide the "submit" and "start" buttons
       document.getElementById("submit").style.cssText = "display: none";
       document.getElementById("start").style.cssText = "display: none";
-      document.getElementById("stop").style.cssText = "display: none"; 
+
+      // Disable radio buttons
+      $(".card-body input").attr("disabled", true);
 
       // Show the reset button
       document.getElementById("reset").style.cssText = "display: block";
@@ -163,7 +174,6 @@ var quiz = {
     // hide the "submit" and "start" buttons
     document.getElementById("submit").style.cssText = "display: none";
     document.getElementById("start").style.cssText = "display: none";
-    // document.getElementById("stop").style.cssText = "display: none";
     
     // Show the reset button
     document.getElementById("reset").style.cssText = "display: block";
@@ -174,281 +184,50 @@ var quiz = {
     // check the answers
     quiz.checkAnswers();
 
+    //disable the radio buttons
+    $(".card-body input").attr("disabled", true);
+
+
   },
 
   checkAnswers: function () {
-        
-    // Check Question 1
-    var radios = document.getElementsByName("question1"); 
-    var i = 0, len = radios.length;
-    // var checked = false;
-    var playerAnswer;
 
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
+    var quizAnswers = ["Venus", "42", "Himalayas", "Steven Spielberg", "Midas", "Springfield", "The High Jump", "Iron", "Rome", "Julia Roberts"]; 
+    for (n = 1; n <= 10; n++) {
+      var checked = false;
+      var radios = document.getElementsByName("question" + n);
+      var playerAnswer;
+      
+      for (i = 0; i < radios.length; i++) {
+        if ($(radios[i]).prop("checked") == true) {
+          playerAnswer = radios[i].value;
+          checked = true;
+        }
       }
-    }
 
-    // When the correct answer is chosen
-    if (playerAnswer === "Venus") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct1").innerText = ("Yes, the right answer is Venus.");
-    }
+      console.log(checked);
 
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect1").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 2
-    var radios = document.getElementsByName("question2"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
+      if (checked != true) {
+        skippedAnswers++;
+        document.getElementById("answersSkippedText").innerText = ("Skipped answers: " + skippedAnswers);
+        document.getElementById("skipped" + n).innerText = ("Opps, you missed this question.");
+        // return;
       }
-    }
-    
-    // When the correct answer is chosen
-    if (playerAnswer === "42") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct2").innerText = ("Yes, the right answer is 42.");
-    }
+      else {
+        // When the correct answer is chosen
+        if (playerAnswer === quizAnswers[n-1]) {
+          rightAnswers++;
+          document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
+          document.getElementById("correct" + n).innerText = ("Yes, the right answer is " + quizAnswers[n-1]);
+        }
 
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect2").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 3
-    var radios = document.getElementsByName("question3"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
+        // When an incorrect answer is chosen
+        else {
+        wrongAnswers++;
+        document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
+        document.getElementById("incorrect" + n).innerText = ("No, that the wrong answer.");
+        }
       }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Himalayas") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct3").innerText = ("Yes, the right answer is Himalayas.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect3").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 4
-    var radios = document.getElementsByName("question4"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Steven Spielberg") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct4").innerText = ("Yes, the right answer is Steven Spielberg.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect4").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 5
-    var radios = document.getElementsByName("question5"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Midas") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct5").innerText = ("Yes, the right answer is Midas.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect5").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 6
-    var radios = document.getElementsByName("question6"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Springfield") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct6").innerText = ("Yes, the right answer is Springfield.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect6").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 7
-    var radios = document.getElementsByName("question7"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "The High Jump") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct7").innerText = ("Yes, the right answer is The High Jump.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect7").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 8
-    var radios = document.getElementsByName("question8"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Iron") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct8").innerText = ("Yes, the right answer is Iron.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect8").innerText = ("No, that the wrong answer.");
-    }
-
-  // Check Question 9
-    var radios = document.getElementsByName("question9"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Rome") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct9").innerText = ("Yes, the right answer is Rome.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect9").innerText = ("No, that the wrong answer.");
-  }
-
-  // Check Question 10
-    var radios = document.getElementsByName("question10"); 
-    var i = 0, len = radios.length;
-    var checked = false;
-    var playerAnswer;
-
-    for (; i < len; i++) {
-      if (radios[i].checked) {
-        checked = true;
-        playerAnswer = radios[i].value;
-      }
-    }
-
-    // When the correct answer is chosen
-    if (playerAnswer === "Julia Roberts") {
-      rightAnswers++;
-      document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-      document.getElementById("correct10").innerText = ("Yes, the right answer is Julia Roberts.");
-    }
-
-    // When an incorrect answer is chosen
-    else {
-    wrongAnswers++;
-    document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-    document.getElementById("incorrect10").innerText = ("No, that the wrong answer.");
     }
   }
 };
-    
-
-
