@@ -1,7 +1,5 @@
 body {
-    background-color: #190f1e;
-    /* background-image: /assets/images/ */
-    background-image: url("/assets/images/seamless-2721472_1920.jpg");
+    background: url("https://cdn.pixabay.com/photo/2017/09/06/13/29/seamless-2721472_960_720.jpg");
     font-family: 'Karma', serif;
     margin-bottom: 25px;
 }
@@ -47,10 +45,9 @@ footer {
 }
 
 input[type=radio] {
-    /* border: 0px; */
-    width: 6%;
+    width: 5%;
     height: 1em;
-    margin-right: -10px;
+    margin-right: -24px;
 }
 
 #tally {
@@ -72,7 +69,6 @@ input[type=radio] {
     color: blue;
 }
 
-
 #buttons, 
 #start,
 #submit, 
@@ -92,7 +88,6 @@ input[type=radio] {
 #correct9, 
 #correct10  {
     color: green;
-    text-align: center;
 }
 
 #incorrect1, 
@@ -106,7 +101,6 @@ input[type=radio] {
 #incorrect9, 
 #incorrect10  {
     color: red;
-    text-align: center;
 }
 
 #skipped1, 
@@ -120,23 +114,6 @@ input[type=radio] {
 #skipped9, 
 #skipped10  {
     color: blue;
-    text-align: center;
 }
 
-#video-background {
-      position: fixed;
-      right: 0; 
-      bottom: 0;
-      min-width: 100%; 
-      min-height: 100%;
-      width: auto; 
-      height: auto;
-      z-index: -100;
-    }
-
-@media (max-width: 767px) {
-    #video-background {
-      display: none;
-    }
-}
 

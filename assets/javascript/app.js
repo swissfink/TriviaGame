@@ -87,7 +87,6 @@ var quiz = {
 
     // Display start button
     document.getElementById("start").style.cssText = "display: inline";
-    // document.getElementById("stop").style.cssText = "display: inline";
   },
 
   start: function () {
@@ -138,7 +137,6 @@ var quiz = {
 
       // Show the reset button
       document.getElementById("reset").style.cssText = "display: block";
-
     }
 
     // Get the current time, pass that into the quizTimer.timeConverter function,
@@ -147,7 +145,6 @@ var quiz = {
 
     // Use the variable created to show the converted time in the "countdownTimer" span.
     $("#countdownTimer").text(converted);
-
   },
 
   timeConverter: function (t) {
@@ -205,27 +202,25 @@ var quiz = {
         }
       }
 
-      console.log(checked);
-
+      // When an answer is skipped
       if (checked != true) {
         skippedAnswers++;
         document.getElementById("answersSkippedText").innerText = ("Skipped answers: " + skippedAnswers);
-        document.getElementById("skipped" + n).innerText = ("Opps, you missed this question.");
-        // return;
+        document.getElementById("skipped" + n).innerText = ("Oops, you missed this question.");
       }
       else {
         // When the correct answer is chosen
         if (playerAnswer === quizAnswers[n-1]) {
           rightAnswers++;
           document.getElementById("answersRightText").innerText = ("Right answers: " + rightAnswers);
-          document.getElementById("correct" + n).innerText = ("Yes, the right answer is " + quizAnswers[n-1]);
+          document.getElementById("correct" + n).innerText = ("Yes, the right answer is " + quizAnswers[n-1] + ".");
         }
 
         // When an incorrect answer is chosen
         else {
         wrongAnswers++;
         document.getElementById("answersWrongText").innerText = ("Wrong answers: " + wrongAnswers);
-        document.getElementById("incorrect" + n).innerText = ("No, that the wrong answer.");
+        document.getElementById("incorrect" + n).innerText = ("No, that's the wrong answer.");
         }
       }
     }
