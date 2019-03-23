@@ -1,10 +1,12 @@
 # TriviaGame
 
-<h3>How to play</h3>
-<ul>
-    <li>• When you start the quiz, read each question carefully.</li>
-    <li>• Select an answer for each question before the timer runs out.</li>
-    <li>• Your number of Right, Wrong, and Skipped answers will be posted when you submit your answers <br>
-        &nbsp;&nbsp;&nbsp;or when the timer runs out.</li>
-    <li>• Good luck!</li>
-</ul>
+## A Trivia game using JavaScript for the logic and jQuery to manipulate HTML
+
+### How to play
+
+1. When you start the quiz, read each question carefully.
+2. Select an answer for each question before the timer runs out.
+3. Your number of Right, Wrong, and Skipped answers will be posted when you submit your answers or when the timer runs out.
+4. Good luck!
+
+[Link to deployed site.](https://swissfink.github.io/TriviaGame/)
