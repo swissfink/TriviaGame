@@ -2,6 +2,8 @@
 
 ## A Trivia game using JavaScript for the logic and jQuery to manipulate HTML
 
+![Image of Trivia Game Landing Page](https://github.com/swissfink/TriviaGame/blob/master/assets/images/trivia-featured-image.png)
+
 ### How to play
 
 1. When you start the quiz, read each question carefully.
